@@ -1402,7 +1402,7 @@ export const CURATED_QUESTIONS: CuratedQuestion[] = [
   {
     id: 'q173',
     text: "If your life was a movie, what would the soundtrack be?",
-    tones: ['light', 'creative'],
+    tones: ['light'],
     depth: 'surface',
     topics: ['creative', 'personal'],
     timeLength: '5min',

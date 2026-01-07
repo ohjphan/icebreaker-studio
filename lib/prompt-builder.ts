@@ -25,13 +25,10 @@ export function buildPrompt(filters: FilterState): string {
 
   // Map topics to content domains
   const topicDescriptions: Record<Topic, string> = {
-    'personal-interests': 'personal interests, hobbies, or things they love outside of work',
-    'work-style': 'work style, collaboration preferences, or how they approach their job',
-    'creativity': 'creativity, imagination, or thinking in new ways',
-    'values': 'values, motivations, or what drives them',
-    'memories': 'memories, experiences, or moments from their life',
-    'learning': 'learning, growth, skill development, or personal evolution',
-    'wildcard': 'any topic - be creative and surprising',
+    'personal': 'personal interests, hobbies, or things they love outside of work',
+    'work': 'work style, collaboration preferences, or how they approach their job',
+    'creative': 'creativity, imagination, or thinking in new ways',
+    'reflective': 'values, motivations, growth, or meaningful experiences',
   };
 
   const topicFocus = topics.length > 0
