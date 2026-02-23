@@ -1,7 +1,6 @@
 'use client';
 
 import { Button } from '@/components/ui/button';
-import { RefreshCw } from 'lucide-react';
 
 interface QuestionDisplayProps {
   question: string | null;
@@ -46,9 +45,12 @@ export function QuestionDisplay({
             <div className="flex justify-center">
               <button
                 onClick={onReroll}
-                className="px-8 py-4 rounded-full text-base font-bold bg-white border border-purple-200 text-purple-700 hover:bg-purple-50 hover:border-purple-300 shadow-md hover:shadow-lg transition-all duration-200 flex items-center gap-3"
+                disabled={isLoading}
+                className="px-8 py-4 rounded-full text-base font-bold bg-white border border-purple-200 text-purple-700 hover:bg-purple-50 hover:border-purple-300 shadow-md hover:shadow-lg transition-all duration-200 flex items-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                <RefreshCw className="h-5 w-5" />
+                <span className={`text-2xl ${isLoading ? 'animate-bounce' : ''}`}>
+                  🎲
+                </span>
                 Re-roll
               </button>
             </div>
