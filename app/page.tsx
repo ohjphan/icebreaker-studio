@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { FilterState, DEFAULT_FILTERS } from '@/types';
 import { FilterBar } from '@/components/filter-bar';
 import { QuestionDisplay } from '@/components/question-display';
@@ -12,6 +12,19 @@ export default function Home() {
   const [isGenerating, setIsGenerating] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [cardColor, setCardColor] = useState<string>('#FFFFFF');
+  const [mousePosition, setMousePosition] = useState({ x: 50, y: 50 });
+
+  // Track mouse movement for dynamic gradient
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      const x = (e.clientX / window.innerWidth) * 100;
+      const y = (e.clientY / window.innerHeight) * 100;
+      setMousePosition({ x, y });
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
 
   // Fun background colors for the question card
   const cardColors = [
@@ -87,11 +100,16 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col pb-32" style={{ background: 'linear-gradient(160deg, #4C3F91 0%, #6C5CE7 50%, #8B7FE8 100%)' }}>
+    <div 
+      className="min-h-screen flex flex-col pb-32 transition-all duration-300 ease-out"
+      style={{ 
+        background: `radial-gradient(circle at ${mousePosition.x}% ${mousePosition.y}%, #8B7FE8 0%, #6C5CE7 30%, #4C3F91 70%, #2D1B69 100%)`
+      }}
+    >
       {/* Header - Simplified */}
       <header className="pt-6 pb-0">
         <div className="container mx-auto px-4">
-          <h1 className="text-3xl md:text-5xl font-bold text-white text-center tracking-tight">
+          <h1 className="text-2xl md:text-3xl font-bold text-white text-center tracking-tight">
             Icebreaker Studio
           </h1>
           <p className="text-sm md:text-base text-purple-100 mt-2 font-medium text-center">
