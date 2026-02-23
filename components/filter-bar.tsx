@@ -1,7 +1,8 @@
 'use client';
 
 import { Tone, Depth, Topic, TONE_OPTIONS, TOPIC_OPTIONS } from '@/types';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, ChevronUp } from 'lucide-react';
+import { useState } from 'react';
 
 interface FilterBarProps {
   tone: Tone;
@@ -32,10 +33,30 @@ export function FilterBar({
   onSurprise,
   isGenerating,
 }: FilterBarProps) {
+  const [isExpanded, setIsExpanded] = useState(false);
+
   return (
     <div className="fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-xl border-t border-purple-200/50 shadow-2xl shadow-purple-200/20 z-50">
-      <div className="container mx-auto px-4 py-6">
-        <div className="flex flex-col md:flex-row items-stretch md:items-end gap-3">
+      {/* Mobile Toggle Button */}
+      <button
+        onClick={() => setIsExpanded(!isExpanded)}
+        className="md:hidden w-full py-3 flex items-center justify-center gap-2 text-purple-700 font-semibold text-sm border-b border-purple-200/50"
+      >
+        {isExpanded ? (
+          <>
+            Hide Filters <ChevronDown className="h-4 w-4" />
+          </>
+        ) : (
+          <>
+            Show Filters <ChevronUp className="h-4 w-4" />
+          </>
+        )}
+      </button>
+
+      {/* Filter Content */}
+      <div className={`${isExpanded ? 'block' : 'hidden'} md:block`}>
+        <div className="container mx-auto px-4 py-6">
+          <div className="flex flex-col md:flex-row items-stretch md:items-end gap-3">
           {/* Tone Dropdown */}
           <div className="relative flex-1 min-w-[140px]">
             <label className="text-xs font-bold text-purple-900 mb-1.5 block">

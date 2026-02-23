@@ -101,7 +101,7 @@ export default function Home() {
 
   return (
     <div 
-      className="min-h-screen flex flex-col pb-32 transition-all duration-300 ease-out relative overflow-hidden"
+      className="min-h-screen flex flex-col pb-20 md:pb-32 transition-all duration-300 ease-out relative overflow-hidden"
       style={{ 
         background: `
           radial-gradient(circle at ${mousePosition.x}% ${mousePosition.y}%, 

@@ -46,9 +46,9 @@ export function QuestionDisplay({
               <button
                 onClick={onReroll}
                 disabled={isLoading}
-                className="px-8 py-4 rounded-full text-base font-bold bg-white border border-purple-200 text-purple-700 hover:bg-purple-50 hover:border-purple-300 shadow-md hover:shadow-lg transition-all duration-200 flex items-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="group px-8 py-4 rounded-full text-base font-bold bg-white border border-purple-200 text-purple-700 hover:bg-purple-50 hover:border-purple-300 shadow-md hover:shadow-lg transition-all duration-200 flex items-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                <span className={`text-2xl ${isLoading ? 'animate-bounce' : ''}`}>
+                <span className={`text-2xl ${isLoading ? 'animate-bounce' : 'group-hover:animate-bounce'}`}>
                   🎲
                 </span>
                 Re-roll
