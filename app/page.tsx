@@ -89,7 +89,7 @@ export default function Home() {
   return (
     <div className="min-h-screen flex flex-col pb-32" style={{ background: 'linear-gradient(160deg, #4C3F91 0%, #6C5CE7 50%, #8B7FE8 100%)' }}>
       {/* Header - Simplified */}
-      <header className="pt-8 pb-2">
+      <header className="pt-6 pb-0">
         <div className="container mx-auto px-4">
           <h1 className="text-3xl md:text-5xl font-bold text-white text-center tracking-tight">
             Icebreaker Studio
@@ -101,7 +101,7 @@ export default function Home() {
       </header>
 
       {/* Main Content - Question Display (Full Width, Centered) */}
-      <main className="flex-1 flex items-center justify-center p-6 md:p-8">
+      <main className="flex-1 flex items-center justify-center p-4 md:p-6">
         <div className="w-full max-w-5xl">
           <QuestionDisplay
             question={question}
