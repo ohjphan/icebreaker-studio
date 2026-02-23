@@ -131,7 +131,7 @@ export function FilterBar({
                 }
               `}
             >
-              ✨ Surprise Me
+              🎉 Surprise Me
             </button>
           </div>
         </div>

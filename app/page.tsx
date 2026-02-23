@@ -87,14 +87,14 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col pb-32" style={{ background: 'linear-gradient(160deg, #F8F7FF 0%, #E8E5FF 50%, #FFF9E6 100%)' }}>
+    <div className="min-h-screen flex flex-col pb-32" style={{ background: 'linear-gradient(160deg, #4C3F91 0%, #6C5CE7 50%, #8B7FE8 100%)' }}>
       {/* Header - M3 Expressive */}
-      <header className="border-b border-purple-200/50 bg-white/60 backdrop-blur-xl">
+      <header className="border-b border-purple-300/30 bg-white/10 backdrop-blur-xl">
         <div className="container mx-auto px-4 py-8">
-          <h1 className="text-3xl md:text-5xl font-bold text-purple-950 text-center tracking-tight">
+          <h1 className="text-3xl md:text-5xl font-bold text-white text-center tracking-tight">
             Icebreaker Studio
           </h1>
-          <p className="text-sm md:text-base text-purple-700 mt-2 font-medium text-center">
+          <p className="text-sm md:text-base text-purple-100 mt-2 font-medium text-center">
             Spark genuine connection
           </p>
         </div>
