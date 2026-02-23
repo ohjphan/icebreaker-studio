@@ -35,75 +35,72 @@ export function FilterBar({
   return (
     <div className="fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-xl border-t border-purple-200/50 shadow-2xl shadow-purple-200/20 z-50">
       <div className="container mx-auto px-4 py-6">
-        <div className="flex flex-col md:flex-row items-stretch md:items-center gap-4">
-          {/* Filters */}
-          <div className="flex flex-wrap md:flex-nowrap items-center gap-3 flex-1">
-            {/* Tone Dropdown */}
-            <div className="relative flex-1 min-w-[140px]">
-              <label className="text-xs font-bold text-purple-900 mb-1.5 block">
-                Tone
-              </label>
-              <div className="relative">
-                <select
-                  value={tone}
-                  onChange={(e) => onToneChange(e.target.value as Tone)}
-                  className="w-full appearance-none bg-white border border-purple-200 rounded-2xl px-4 py-3 pr-10 text-sm font-semibold text-purple-900 cursor-pointer hover:border-purple-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
-                >
-                  {TONE_OPTIONS.map((option) => (
-                    <option key={option.value} value={option.value}>
-                      {option.emoji} {option.label}
-                    </option>
-                  ))}
-                </select>
-                <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-purple-400 pointer-events-none" />
-              </div>
-            </div>
-
-            {/* Depth Dropdown */}
-            <div className="relative flex-1 min-w-[140px]">
-              <label className="text-xs font-bold text-purple-900 mb-1.5 block">
-                Depth
-              </label>
-              <div className="relative">
-                <select
-                  value={depth}
-                  onChange={(e) => onDepthChange(e.target.value as Depth)}
-                  className="w-full appearance-none bg-white border border-purple-200 rounded-2xl px-4 py-3 pr-10 text-sm font-semibold text-purple-900 cursor-pointer hover:border-purple-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
-                >
-                  {DEPTH_OPTIONS.map((option) => (
-                    <option key={option.value} value={option.value}>
-                      {option.label}
-                    </option>
-                  ))}
-                </select>
-                <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-purple-400 pointer-events-none" />
-              </div>
-            </div>
-
-            {/* Topic Dropdown */}
-            <div className="relative flex-1 min-w-[140px]">
-              <label className="text-xs font-bold text-purple-900 mb-1.5 block">
-                Topic <span className="text-purple-500 font-normal">(optional)</span>
-              </label>
-              <div className="relative">
-                <select
-                  value={topic || ''}
-                  onChange={(e) => onTopicChange(e.target.value ? (e.target.value as Topic) : null)}
-                  className="w-full appearance-none bg-white border border-purple-200 rounded-2xl px-4 py-3 pr-10 text-sm font-semibold text-purple-900 cursor-pointer hover:border-purple-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
-                >
-                  <option value="">Any topic</option>
-                  <option value="personal">🎨 Personal</option>
-                  <option value="work">💼 Work</option>
-                  <option value="creative">💡 Creative</option>
-                  <option value="reflective">🌟 Reflective</option>
-                </select>
-                <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-purple-400 pointer-events-none" />
-              </div>
+        <div className="flex flex-col md:flex-row items-stretch md:items-end gap-3">
+          {/* Tone Dropdown */}
+          <div className="relative flex-1 min-w-[140px]">
+            <label className="text-xs font-bold text-purple-900 mb-1.5 block">
+              Tone
+            </label>
+            <div className="relative">
+              <select
+                value={tone}
+                onChange={(e) => onToneChange(e.target.value as Tone)}
+                className="w-full appearance-none bg-white border border-purple-200 rounded-2xl px-4 py-3 pr-10 text-sm font-semibold text-purple-900 cursor-pointer hover:border-purple-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+              >
+                {TONE_OPTIONS.map((option) => (
+                  <option key={option.value} value={option.value}>
+                    {option.emoji} {option.label}
+                  </option>
+                ))}
+              </select>
+              <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-purple-400 pointer-events-none" />
             </div>
           </div>
 
-          {/* Action Buttons */}
-          <div className="flex gap-3 md:ml-4">
+          {/* Depth Dropdown */}
+          <div className="relative flex-1 min-w-[140px]">
+            <label className="text-xs font-bold text-purple-900 mb-1.5 block">
+              Depth
+            </label>
+            <div className="relative">
+              <select
+                value={depth}
+                onChange={(e) => onDepthChange(e.target.value as Depth)}
+                className="w-full appearance-none bg-white border border-purple-200 rounded-2xl px-4 py-3 pr-10 text-sm font-semibold text-purple-900 cursor-pointer hover:border-purple-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+              >
+                {DEPTH_OPTIONS.map((option) => (
+                  <option key={option.value} value={option.value}>
+                    {option.label}
+                  </option>
+                ))}
+              </select>
+              <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-purple-400 pointer-events-none" />
+            </div>
+          </div>
+
+          {/* Topic Dropdown */}
+          <div className="relative flex-1 min-w-[140px]">
+            <label className="text-xs font-bold text-purple-900 mb-1.5 block">
+              Topic <span className="text-purple-500 font-normal">(optional)</span>
+            </label>
+            <div className="relative">
+              <select
+                value={topic || ''}
+                onChange={(e) => onTopicChange(e.target.value ? (e.target.value as Topic) : null)}
+                className="w-full appearance-none bg-white border border-purple-200 rounded-2xl px-4 py-3 pr-10 text-sm font-semibold text-purple-900 cursor-pointer hover:border-purple-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+              >
+                <option value="">Any topic</option>
+                <option value="personal">🎨 Personal</option>
+                <option value="work">💼 Work</option>
+                <option value="creative">💡 Creative</option>
+                <option value="reflective">🌟 Reflective</option>
+              </select>
+              <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-purple-400 pointer-events-none" />
+            </div>
+          </div>
+
+          {/* Action Buttons - Aligned with dropdowns */}
+          <div className="flex gap-3">
             <button
               onClick={onGenerate}
               disabled={isGenerating}

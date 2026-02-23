@@ -101,9 +101,24 @@ export default function Home() {
 
   return (
     <div 
-      className="min-h-screen flex flex-col pb-32 transition-all duration-300 ease-out"
+      className="min-h-screen flex flex-col pb-32 transition-all duration-300 ease-out relative overflow-hidden"
       style={{ 
-        background: `radial-gradient(circle at ${mousePosition.x}% ${mousePosition.y}%, #8B7FE8 0%, #6C5CE7 30%, #4C3F91 70%, #2D1B69 100%)`
+        background: `
+          radial-gradient(circle at ${mousePosition.x}% ${mousePosition.y}%, 
+            rgba(255, 107, 237, 0.4) 0%, 
+            rgba(138, 127, 232, 0.3) 20%, 
+            transparent 50%),
+          radial-gradient(circle at ${100 - mousePosition.x}% ${100 - mousePosition.y}%, 
+            rgba(255, 154, 158, 0.3) 0%, 
+            rgba(108, 92, 231, 0.4) 30%, 
+            transparent 60%),
+          linear-gradient(135deg, 
+            #6C5CE7 0%, 
+            #FF6BED 20%, 
+            #FF9A9E 40%, 
+            #5ED9E3 60%, 
+            #8B7FE8 80%, 
+            #4C3F91 100%)`
       }}
     >
       {/* Header - Simplified */}
