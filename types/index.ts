@@ -18,9 +18,9 @@ export interface SafetySettings {
 }
 
 export interface FilterState {
-  tones: Tone[];
+  tone: Tone;
   depth: Depth;
-  topics: Topic[];
+  topic: Topic | null;
   timeLength: TimeLength;
   safety: SafetySettings;
 }
@@ -102,9 +102,9 @@ export const TOPIC_OPTIONS: TopicOption[] = [
 ];
 
 export const DEFAULT_FILTERS: FilterState = {
-  tones: ['light', 'thoughtful'],
+  tone: 'light',
   depth: 'medium',
-  topics: [],
+  topic: null,
   timeLength: '5min',
   safety: {
     psychologicalSafety: true,

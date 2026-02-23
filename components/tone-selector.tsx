@@ -3,48 +3,39 @@
 import { Tone, TONE_OPTIONS } from '@/types';
 
 interface ToneSelectorProps {
-  selectedTones: Tone[];
-  onChange: (tones: Tone[]) => void;
+  selectedTone: Tone;
+  onChange: (tone: Tone) => void;
 }
 
 const toneColors: Record<Tone, string> = {
-  extreme: 'bg-purple-300 border-purple-400 hover:bg-purple-400',
-  funny: 'bg-yellow-300 border-yellow-400 hover:bg-yellow-400',
-  light: 'bg-pink-300 border-pink-400 hover:bg-pink-400',
-  thoughtful: 'bg-blue-300 border-blue-400 hover:bg-blue-400',
-  serious: 'bg-green-300 border-green-400 hover:bg-green-400',
+  extreme: 'bg-purple-500 text-white',
+  funny: 'bg-yellow-400 text-purple-900',
+  light: 'bg-purple-200 text-purple-900',
+  thoughtful: 'bg-purple-300 text-purple-900',
+  serious: 'bg-purple-600 text-white',
 };
 
-export function ToneSelector({ selectedTones, onChange }: ToneSelectorProps) {
-  const toggleTone = (tone: Tone) => {
-    if (selectedTones.includes(tone)) {
-      onChange(selectedTones.filter((t) => t !== tone));
-    } else {
-      onChange([...selectedTones, tone]);
-    }
-  };
-
+export function ToneSelector({ selectedTone, onChange }: ToneSelectorProps) {
   return (
-    <div className="space-y-3">
-      <h3 className="text-sm font-bold text-gray-800 uppercase tracking-wide">Tone</h3>
+    <div className="space-y-4">
+      <h3 className="text-sm font-bold text-purple-900 tracking-wide">Tone</h3>
       <div className="flex flex-wrap gap-2">
         {TONE_OPTIONS.map((option) => {
-          const isSelected = selectedTones.includes(option.value);
+          const isSelected = selectedTone === option.value;
           return (
             <button
               key={option.value}
-              onClick={() => toggleTone(option.value)}
+              onClick={() => onChange(option.value)}
               className={`
-                px-4 py-2 rounded-full text-sm font-bold
-                border-2 border-gray-800
-                transition-all duration-200
+                px-5 py-2.5 rounded-full text-sm font-semibold
+                border transition-all duration-200
                 ${isSelected 
-                  ? `${toneColors[option.value]} shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] translate-y-[-2px]` 
-                  : 'bg-white hover:bg-gray-50 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]'
+                  ? `${toneColors[option.value]} border-purple-300 shadow-lg scale-105` 
+                  : 'bg-white border-purple-200 hover:bg-purple-50 hover:border-purple-300 shadow-sm'
                 }
               `}
             >
-              <span className="mr-1.5 text-base">{option.emoji}</span>
+              <span className="mr-2 text-base">{option.emoji}</span>
               {option.label}
             </button>
           );

@@ -1,7 +1,7 @@
 import { FilterState, Tone, Depth, Topic } from '@/types';
 
 export function buildPrompt(filters: FilterState): string {
-  const { tones, depth, topics, timeLength, safety } = filters;
+  const { tone, depth, topic, timeLength, safety } = filters;
 
   // Map tones to descriptive language
   const toneDescriptions: Record<Tone, string> = {
@@ -12,7 +12,7 @@ export function buildPrompt(filters: FilterState): string {
     serious: 'professional and focused, work-oriented',
   };
 
-  const selectedToneDescriptions = tones.map(t => toneDescriptions[t]).join(' and ');
+  const selectedToneDescription = toneDescriptions[tone];
 
   // Map depth to complexity guidelines
   const depthGuidelines: Record<Depth, string> = {
@@ -31,8 +31,8 @@ export function buildPrompt(filters: FilterState): string {
     'reflective': 'values, motivations, growth, or meaningful experiences',
   };
 
-  const topicFocus = topics.length > 0
-    ? `Focus the question on: ${topics.map(t => topicDescriptions[t]).join(', ')}.`
+  const topicFocus = topic !== null
+    ? `Focus the question on: ${topicDescriptions[topic]}.`
     : 'The question can be about any topic.';
 
   // Time-based guidance
@@ -57,7 +57,7 @@ export function buildPrompt(filters: FilterState): string {
   // Build the complete prompt
   const prompt = `You are an expert facilitator creating icebreaker questions for team meetings.
 
-TONE: ${selectedToneDescriptions}
+TONE: ${selectedToneDescription}
 
 DEPTH: ${depthGuideline}
 

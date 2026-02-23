@@ -56,9 +56,9 @@ export default function Home() {
   const handleSurpriseMeSafe = async () => {
     // Use safe default settings
     const safeFilters: FilterState = {
-      tones: ['light', 'thoughtful'],
+      tone: 'light',
       depth: 'medium',
-      topics: [],
+      topic: null,
       timeLength: '5min',
       safety: {
         psychologicalSafety: true,
@@ -87,23 +87,27 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col" style={{ background: 'linear-gradient(135deg, #FFE5EC 0%, #E5F4FF 50%, #FFF5E1 100%)' }}>
-      {/* Header - Playful */}
-      <header className="border-b-2 border-gray-800" style={{ background: '#FFDEE9' }}>
-        <div className="container mx-auto px-4 py-6">
-          <h1 className="text-2xl md:text-3xl font-bold text-gray-900 text-center md:text-left" style={{ fontFamily: 'system-ui, -apple-system, sans-serif', letterSpacing: '-0.02em' }}>
-            ✨ Icebreaker Studio
+    <div className="min-h-screen flex flex-col" style={{ background: 'linear-gradient(160deg, #F8F7FF 0%, #E8E5FF 50%, #FFF9E6 100%)' }}>
+      {/* Header - M3 Expressive */}
+      <header className="border-b border-purple-200/50 bg-white/60 backdrop-blur-xl">
+        <div className="container mx-auto px-4 py-8">
+          <h1 className="text-3xl md:text-5xl font-bold text-purple-950 text-center md:text-left tracking-tight">
+            Icebreaker Studio
           </h1>
+          <p className="text-sm md:text-base text-purple-700 mt-2 font-medium text-center md:text-left">
+            Spark genuine connection
+          </p>
         </div>
       </header>
 
       {/* Main Layout - Sidebar + Content */}
       <div className="flex-1 flex flex-col md:flex-row">
         {/* Left Sidebar - Filters */}
-        <aside className="w-full md:w-80 lg:w-96 border-r-0 md:border-r-2 border-gray-800 bg-white/50 backdrop-blur-sm">
+        <aside className="w-full md:w-80 lg:w-96 border-r-0 md:border-r border-purple-200/50 bg-white/40 backdrop-blur-xl">
           <div className="sticky top-0 p-6 md:p-8 h-full overflow-y-auto">
-            <div className="mb-6">
-              <h2 className="text-lg font-bold text-gray-800">Select your vibe</h2>
+            <div className="mb-8">
+              <h2 className="text-2xl font-bold text-purple-950 tracking-tight">Select your vibe</h2>
+              <p className="text-sm text-purple-600 mt-1">Customize your question</p>
             </div>
             <ControlPanel
               filters={filters}
@@ -129,10 +133,10 @@ export default function Home() {
           </main>
       </div>
 
-      {/* Footer - Playful */}
-      <footer className="border-t-2 border-gray-800 bg-white/30 backdrop-blur-sm py-4">
-        <p className="text-xs text-gray-600 font-medium text-center">
-          ⭐ 288 curated questions ⭐
+      {/* Footer - M3 Expressive */}
+      <footer className="border-t border-purple-200/50 bg-white/40 backdrop-blur-xl py-6">
+        <p className="text-xs text-purple-600 font-medium text-center">
+          288 curated questions
         </p>
       </footer>
     </div>

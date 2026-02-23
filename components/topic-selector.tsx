@@ -3,15 +3,15 @@
 import { Topic, TOPIC_OPTIONS } from '@/types';
 
 interface TopicSelectorProps {
-  selectedTopics: Topic[];
-  onChange: (topics: Topic[]) => void;
+  selectedTopic: Topic | null;
+  onChange: (topic: Topic | null) => void;
 }
 
 const topicColors: Record<Topic, string> = {
-  personal: 'bg-rose-300 border-rose-400 hover:bg-rose-400',
-  work: 'bg-amber-300 border-amber-400 hover:bg-amber-400',
-  creative: 'bg-violet-300 border-violet-400 hover:bg-violet-400',
-  reflective: 'bg-teal-300 border-teal-400 hover:bg-teal-400',
+  personal: 'bg-purple-400 text-white',
+  work: 'bg-yellow-400 text-purple-900',
+  creative: 'bg-purple-300 text-purple-900',
+  reflective: 'bg-purple-500 text-white',
 };
 
 const topicEmojis: Record<Topic, string> = {
@@ -21,39 +21,39 @@ const topicEmojis: Record<Topic, string> = {
   reflective: '🌟',
 };
 
-export function TopicSelector({ selectedTopics, onChange }: TopicSelectorProps) {
-  const toggleTopic = (topic: Topic) => {
-    if (selectedTopics.includes(topic)) {
-      onChange(selectedTopics.filter((t) => t !== topic));
+export function TopicSelector({ selectedTopic, onChange }: TopicSelectorProps) {
+  const handleTopicClick = (topic: Topic) => {
+    // Toggle: if already selected, deselect (set to null), otherwise select
+    if (selectedTopic === topic) {
+      onChange(null);
     } else {
-      onChange([...selectedTopics, topic]);
+      onChange(topic);
     }
   };
 
   return (
-    <div className="space-y-3">
-      <h3 className="text-sm font-bold text-gray-800 uppercase tracking-wide">
-        Topics <span className="text-gray-500 font-normal text-xs normal-case">(optional)</span>
+    <div className="space-y-4">
+      <h3 className="text-sm font-bold text-purple-900 tracking-wide">
+        Topic <span className="text-purple-500 font-normal text-xs">(optional)</span>
       </h3>
       <div className="grid grid-cols-2 gap-2">
         {TOPIC_OPTIONS.map((option) => {
-          const isSelected = selectedTopics.includes(option.value);
+          const isSelected = selectedTopic === option.value;
           return (
             <button
               key={option.value}
-              onClick={() => toggleTopic(option.value)}
+              onClick={() => handleTopicClick(option.value)}
               className={`
-                px-4 py-3 rounded-2xl text-sm font-bold
-                border-2 border-gray-800
-                transition-all duration-200
+                px-4 py-3.5 rounded-3xl text-sm font-semibold
+                border transition-all duration-200
                 ${isSelected 
-                  ? `${topicColors[option.value]} shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] translate-y-[-2px]` 
-                  : 'bg-white hover:bg-gray-50 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]'
+                  ? `${topicColors[option.value]} border-purple-300 shadow-lg scale-105` 
+                  : 'bg-white border-purple-200 hover:bg-purple-50 hover:border-purple-300 shadow-sm'
                 }
               `}
               title={option.description}
             >
-              <span className="mr-1.5 text-base">{topicEmojis[option.value]}</span>
+              <span className="mr-2 text-lg">{topicEmojis[option.value]}</span>
               {option.label}
             </button>
           );

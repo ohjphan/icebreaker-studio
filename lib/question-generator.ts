@@ -11,11 +11,9 @@ function questionsMatchFilter(question: CuratedQuestion, filters: FilterState): 
   let score = 0;
 
   // Tone matching (higher priority)
-  const toneMatches = question.tones.some(t => filters.tones.includes(t));
+  const toneMatches = question.tones.includes(filters.tone);
   if (toneMatches) {
     score += 10;
-  } else if (filters.tones.length === 0) {
-    score += 5; // If no tones selected, all questions are fair game
   }
 
   // Depth matching (high priority)
@@ -33,13 +31,13 @@ function questionsMatchFilter(question: CuratedQuestion, filters: FilterState): 
   }
 
   // Topic matching (medium priority)
-  if (filters.topics.length > 0) {
-    const topicMatches = question.topics.some(t => filters.topics.includes(t));
+  if (filters.topic !== null) {
+    const topicMatches = question.topics.includes(filters.topic);
     if (topicMatches) {
       score += 6;
     }
   } else {
-    // If no topics selected, all questions work
+    // If no topic selected, all questions work
     score += 3;
   }
 
@@ -60,13 +58,7 @@ function questionsMatchFilter(question: CuratedQuestion, filters: FilterState): 
 
 export async function generateQuestion(filters: FilterState): Promise<GenerateQuestionResult> {
   try {
-    // Validate that at least one tone is selected
-    if (filters.tones.length === 0) {
-      return {
-        success: false,
-        error: 'Please select at least one tone to generate a question',
-      };
-    }
+    // Tone is always selected (required field in FilterState)
 
     // Score all questions based on how well they match the filters
     const scoredQuestions = CURATED_QUESTIONS.map(q => ({
