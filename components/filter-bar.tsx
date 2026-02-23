@@ -105,21 +105,6 @@ export function FilterBar({
           {/* Action Buttons */}
           <div className="flex gap-3 md:ml-4">
             <button
-              onClick={onSurprise}
-              disabled={isGenerating}
-              className={`
-                px-6 py-3 rounded-2xl text-sm font-semibold
-                transition-all duration-200
-                ${isGenerating
-                  ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
-                  : 'bg-gradient-to-r from-yellow-400 to-yellow-300 text-purple-900 shadow-md shadow-yellow-200/50 hover:shadow-lg hover:shadow-yellow-300/50 hover:scale-105 active:scale-100'
-                }
-              `}
-            >
-              ✨ Surprise Me
-            </button>
-            
-            <button
               onClick={onGenerate}
               disabled={isGenerating}
               className={`
@@ -132,6 +117,21 @@ export function FilterBar({
               `}
             >
               {isGenerating ? 'Generating...' : 'Generate'}
+            </button>
+            
+            <button
+              onClick={onSurprise}
+              disabled={isGenerating}
+              className={`
+                px-6 py-3 rounded-2xl text-sm font-semibold
+                transition-all duration-200
+                ${isGenerating
+                  ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
+                  : 'bg-gradient-to-r from-yellow-400 to-yellow-300 text-purple-900 shadow-md shadow-yellow-200/50 hover:shadow-lg hover:shadow-yellow-300/50 hover:scale-105 active:scale-100'
+                }
+              `}
+            >
+              ✨ Surprise Me
             </button>
           </div>
         </div>
