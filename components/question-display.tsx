@@ -57,10 +57,10 @@ export function QuestionDisplay({
             </Button>
           </div>
         ) : question ? (
-          <div className="w-full space-y-12 animate-in fade-in duration-500">
+          <div className="w-full space-y-12 animate-in fade-in duration-500 flex flex-col items-center">
             <p 
-              className="text-3xl md:text-6xl text-center leading-tight font-black tracking-tight"
-              style={{ color: textColor }}
+              className="text-center leading-tight font-black tracking-tight max-w-4xl"
+              style={{ color: textColor, fontSize: '40px' }}
             >
               {question}
             </p>

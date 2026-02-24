@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { Bricolage_Grotesque, DM_Mono } from "next/font/google";
+import { Sora, DM_Mono } from "next/font/google";
 import "./globals.css";
 
-const bricolage = Bricolage_Grotesque({
-  variable: "--font-bricolage",
+const sora = Sora({
+  variable: "--font-sora",
   subsets: ["latin"],
 });
 
@@ -26,7 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${bricolage.variable} ${dmMono.variable} font-sans antialiased`}
+        className={`${sora.variable} ${dmMono.variable} font-sans antialiased`}
       >
         {children}
       </body>
