@@ -99,7 +99,7 @@ export default function Home() {
       {/* Content with higher z-index */}
       <div className="relative z-10">
         {/* Header - Bauhaus Style */}
-        <header className="pt-8 pb-4 border-b-4 border-black">
+        <header className="pt-8 pb-4">
         <div className="container mx-auto px-4">
           <div className="flex items-start justify-between">
             <div className="flex-1">
@@ -113,7 +113,8 @@ export default function Home() {
             
             <button
               onClick={() => setIsModalOpen(true)}
-              className="ml-4 px-4 py-2 md:px-6 md:py-3 font-black uppercase text-xs md:text-sm tracking-wider bg-white text-black border-3 border-black hover:bg-gray-100 active:translate-y-1 transition-all duration-200 whitespace-nowrap"
+              className="ml-4 px-4 py-2 md:px-6 md:py-3 font-bold uppercase tracking-[3px] bg-white text-black border-3 border-black hover:bg-gray-100 active:translate-y-1 transition-all duration-200 whitespace-nowrap"
+              style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '16px' }}
             >
               Learn More
             </button>

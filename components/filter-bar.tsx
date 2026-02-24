@@ -36,11 +36,11 @@ export function FilterBar({
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-[#F5EDE0] border-t-4 border-black z-50">
+    <div className="fixed bottom-0 left-0 right-0 bg-black border-t-4 border-white z-50">
       {/* Mobile Toggle Button */}
       <button
         onClick={() => setIsExpanded(!isExpanded)}
-        className="md:hidden w-full py-4 flex items-center justify-center gap-2 text-black font-black uppercase text-sm tracking-wider border-b-2 border-black"
+        className="md:hidden w-full py-4 flex items-center justify-center gap-2 text-white font-black uppercase text-sm tracking-wider border-b-2 border-white"
       >
         {isExpanded ? (
           <>
@@ -59,14 +59,14 @@ export function FilterBar({
           <div className="flex flex-col md:flex-row items-stretch md:items-end gap-4">
             {/* Tone Dropdown */}
             <div className="relative flex-1 min-w-[140px]">
-              <label className="text-xs font-bold text-black mb-2 block uppercase tracking-[3px]" style={{ fontFamily: 'var(--font-dm-mono)' }}>
+              <label className="text-xs font-bold text-white mb-2 block uppercase tracking-[3px]" style={{ fontFamily: 'var(--font-dm-mono)' }}>
                 Tone
               </label>
               <div className="relative">
                 <select
                   value={tone}
                   onChange={(e) => onToneChange(e.target.value as Tone)}
-                  className="w-full appearance-none bg-white border-3 border-black px-4 py-3 pr-10 text-sm font-bold text-black cursor-pointer hover:bg-gray-50 focus:outline-none focus:ring-4 focus:ring-black transition-all"
+                  className="w-full appearance-none bg-black border-3 border-white px-4 py-3 pr-10 text-sm font-bold text-white cursor-pointer hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-white transition-all"
                 >
                   {TONE_OPTIONS.map((option) => (
                     <option key={option.value} value={option.value}>
@@ -74,20 +74,20 @@ export function FilterBar({
                     </option>
                   ))}
                 </select>
-                <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 h-5 w-5 text-black pointer-events-none" strokeWidth={3} />
+                <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 h-5 w-5 text-white pointer-events-none" strokeWidth={3} />
               </div>
             </div>
 
             {/* Depth Dropdown */}
             <div className="relative flex-1 min-w-[140px]">
-              <label className="text-xs font-bold text-black mb-2 block uppercase tracking-[3px]" style={{ fontFamily: 'var(--font-dm-mono)' }}>
+              <label className="text-xs font-bold text-white mb-2 block uppercase tracking-[3px]" style={{ fontFamily: 'var(--font-dm-mono)' }}>
                 Depth
               </label>
               <div className="relative">
                 <select
                   value={depth}
                   onChange={(e) => onDepthChange(e.target.value as Depth)}
-                  className="w-full appearance-none bg-white border-3 border-black px-4 py-3 pr-10 text-sm font-bold text-black cursor-pointer hover:bg-gray-50 focus:outline-none focus:ring-4 focus:ring-black transition-all"
+                  className="w-full appearance-none bg-black border-3 border-white px-4 py-3 pr-10 text-sm font-bold text-white cursor-pointer hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-white transition-all"
                 >
                   {DEPTH_OPTIONS.map((option) => (
                     <option key={option.value} value={option.value}>
@@ -95,20 +95,20 @@ export function FilterBar({
                     </option>
                   ))}
                 </select>
-                <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 h-5 w-5 text-black pointer-events-none" strokeWidth={3} />
+                <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 h-5 w-5 text-white pointer-events-none" strokeWidth={3} />
               </div>
             </div>
 
             {/* Topic Dropdown */}
             <div className="relative flex-1 min-w-[140px]">
-              <label className="text-xs font-bold text-black mb-2 block uppercase tracking-[3px]" style={{ fontFamily: 'var(--font-dm-mono)' }}>
+              <label className="text-xs font-bold text-white mb-2 block uppercase tracking-[3px]" style={{ fontFamily: 'var(--font-dm-mono)' }}>
                 Topic
               </label>
               <div className="relative">
                 <select
                   value={topic || ''}
                   onChange={(e) => onTopicChange(e.target.value ? (e.target.value as Topic) : null)}
-                  className="w-full appearance-none bg-white border-3 border-black px-4 py-3 pr-10 text-sm font-bold text-black cursor-pointer hover:bg-gray-50 focus:outline-none focus:ring-4 focus:ring-black transition-all"
+                  className="w-full appearance-none bg-black border-3 border-white px-4 py-3 pr-10 text-sm font-bold text-white cursor-pointer hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-white transition-all"
                 >
                   <option value="">Any</option>
                   <option value="personal">🎨 Personal</option>
@@ -116,7 +116,7 @@ export function FilterBar({
                   <option value="creative">💡 Creative</option>
                   <option value="reflective">🌟 Reflective</option>
                 </select>
-                <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 h-5 w-5 text-black pointer-events-none" strokeWidth={3} />
+                <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 h-5 w-5 text-white pointer-events-none" strokeWidth={3} />
               </div>
             </div>
 
@@ -126,13 +126,14 @@ export function FilterBar({
                 onClick={onGenerate}
                 disabled={isGenerating}
                 className={`
-                  px-8 py-3 font-black uppercase text-base tracking-wider
-                  border-3 border-black transition-all duration-200
+                  px-8 py-3 font-bold uppercase tracking-[3px] transition-all duration-200
+                  border-3 border-white
                   ${isGenerating
-                    ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                    ? 'bg-gray-800 text-gray-400 cursor-not-allowed'
                     : 'bg-[#E30613] text-white hover:bg-[#C00510] active:translate-y-1'
                   }
                 `}
+                style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '16px' }}
               >
                 {isGenerating ? 'Loading...' : 'Generate'}
               </button>
@@ -141,13 +142,14 @@ export function FilterBar({
                 onClick={onSurprise}
                 disabled={isGenerating}
                 className={`
-                  px-6 py-3 font-black uppercase text-sm tracking-wider
-                  border-3 border-black transition-all duration-200
+                  px-6 py-3 font-bold uppercase tracking-[3px] transition-all duration-200
+                  border-3 border-white
                   ${isGenerating
-                    ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
+                    ? 'bg-gray-800 text-gray-400 cursor-not-allowed'
                     : 'bg-[#FFD500] text-black hover:bg-[#E5C000] active:translate-y-1'
                   }
                 `}
+                style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '16px' }}
               >
                 Surprise
               </button>
