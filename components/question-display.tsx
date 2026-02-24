@@ -40,7 +40,7 @@ export function QuestionDisplay({
         />
         
         {/* Content with higher z-index */}
-        <div className="relative z-10 w-full h-full p-12 md:p-20 flex flex-col items-center justify-center space-y-10">
+        <div className="relative z-10 w-full h-full p-12 md:p-20 flex flex-col items-center justify-center">
         {isLoading ? (
           <div className="text-center space-y-6 w-full">
             <div className="flex items-center justify-center gap-4">
@@ -57,7 +57,7 @@ export function QuestionDisplay({
             </Button>
           </div>
         ) : question ? (
-          <div className="w-full space-y-12 animate-in fade-in duration-500 flex flex-col items-center">
+          <div className="w-full flex flex-col items-center justify-center space-y-12 animate-in fade-in duration-500">
             <p 
               className="text-center leading-tight font-black tracking-tight max-w-4xl"
               style={{ color: textColor, fontSize: '40px' }}
