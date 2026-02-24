@@ -34,6 +34,27 @@ export function FilterBar({
   isGenerating,
 }: FilterBarProps) {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [activeButton, setActiveButton] = useState<'generate' | 'surprise' | null>(null);
+
+  const handleGenerate = () => {
+    setActiveButton('generate');
+    onGenerate();
+  };
+
+  const handleSurprise = () => {
+    setActiveButton('surprise');
+    onSurprise();
+  };
+
+  // Reset active button when loading completes
+  useState(() => {
+    if (!isGenerating) {
+      setActiveButton(null);
+    }
+  });
+
+  const isGenerateLoading = isGenerating && activeButton === 'generate';
+  const isSurpriseLoading = isGenerating && activeButton === 'surprise';
 
   return (
     <div className="fixed bottom-0 left-0 right-0 bg-black border-t-4 border-white z-50">
@@ -123,19 +144,19 @@ export function FilterBar({
             {/* Action Buttons */}
             <div className="flex gap-3">
               <button
-                onClick={onGenerate}
+                onClick={handleGenerate}
                 disabled={isGenerating}
                 className={`
                   px-8 py-3 font-bold uppercase tracking-[3px] transition-all duration-200
-                  border-3 border-white min-w-[140px]
+                  border-3 border-white h-[52px] flex items-center justify-center
                   ${isGenerating
                     ? 'bg-gray-800 text-gray-400 cursor-not-allowed'
                     : 'bg-[#E30613] text-white hover:bg-[#C00510] active:translate-y-1'
                   }
                 `}
-                style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '14px' }}
+                style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '14px', minWidth: '140px' }}
               >
-                {isGenerating ? (
+                {isGenerateLoading ? (
                   <div className="flex items-center justify-center gap-2">
                     <div className="w-3 h-3 bg-[#E30613] border border-white animate-bounce"></div>
                     <div className="w-3 h-3 bg-[#0057B7] border border-white animate-bounce [animation-delay:0.1s]"></div>
@@ -147,19 +168,19 @@ export function FilterBar({
               </button>
               
               <button
-                onClick={onSurprise}
+                onClick={handleSurprise}
                 disabled={isGenerating}
                 className={`
                   px-6 py-3 font-bold uppercase tracking-[3px] transition-all duration-200
-                  border-3 border-white min-w-[130px]
+                  border-3 border-white h-[52px] flex items-center justify-center
                   ${isGenerating
                     ? 'bg-gray-800 text-gray-400 cursor-not-allowed'
                     : 'bg-[#FFD500] text-black hover:bg-[#E5C000] active:translate-y-1'
                   }
                 `}
-                style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '14px' }}
+                style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '14px', minWidth: '130px' }}
               >
-                {isGenerating ? (
+                {isSurpriseLoading ? (
                   <div className="flex items-center justify-center gap-2">
                     <div className="w-3 h-3 bg-[#E30613] border border-black animate-bounce"></div>
                     <div className="w-3 h-3 bg-[#0057B7] border border-black animate-bounce [animation-delay:0.1s]"></div>
