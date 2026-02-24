@@ -32,8 +32,7 @@ export function LearnMoreModal({ isOpen, onClose }: LearnMoreModalProps) {
       
       {/* Modal */}
       <div className="fixed inset-0 z-50 flex items-center justify-center p-4 pointer-events-none">
-        <div className="pointer-events-auto">
-        <div className="bg-white border-4 border-black max-w-2xl w-full max-h-[80vh] overflow-y-auto relative">
+        <div className="pointer-events-auto bg-white border-4 border-black max-w-2xl w-full max-h-[80vh] overflow-y-auto relative">
           {/* Close button */}
           <button
             onClick={onClose}

@@ -23,7 +23,7 @@ export function QuestionDisplay({
   return (
     <div className="w-full">
       <div 
-        className="min-h-[400px] md:min-h-[500px] border-4 border-black relative overflow-hidden"
+        className="min-h-[400px] md:min-h-[500px] border-4 border-black relative overflow-hidden flex items-center justify-center"
         style={{ 
           backgroundColor: cardColor,
         }}
@@ -40,7 +40,7 @@ export function QuestionDisplay({
         />
         
         {/* Content with higher z-index */}
-        <div className="relative z-10 w-full h-full p-12 md:p-20 flex flex-col items-center justify-center">
+        <div className="relative z-10 w-full p-12 md:p-20 flex flex-col items-center justify-center">
         {isLoading ? (
           <div className="text-center space-y-6 w-full">
             <div className="flex items-center justify-center gap-4">

@@ -100,8 +100,8 @@ export default function Home() {
       <div className="relative z-10">
         {/* Header - Bauhaus Style */}
         <header className="pt-8 pb-4">
-        <div className="container mx-auto px-4">
-          <div className="flex items-start justify-between">
+          <div className="container mx-auto">
+          <div className="flex items-center justify-between">
             <div className="flex-1">
               <h1 className="font-black text-black tracking-tight" style={{ fontSize: '32px' }}>
                 Icebreaker Pad
@@ -111,12 +111,15 @@ export default function Home() {
               </p>
             </div>
             
+            {/* Menu Button - 3 Squares */}
             <button
               onClick={() => setIsModalOpen(true)}
-              className="ml-4 px-4 py-2 md:px-6 md:py-3 font-bold uppercase tracking-[3px] bg-white text-black border-3 border-black hover:bg-gray-100 active:translate-y-1 transition-all duration-200 whitespace-nowrap"
-              style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '14px' }}
+              className="group ml-4 flex items-center gap-1.5 p-2 hover:bg-black/5 transition-colors rounded"
+              aria-label="Learn More"
             >
-              Learn More
+              <div className="w-5 h-5 bg-[#E30613] border-3 border-black group-hover:animate-bounce"></div>
+              <div className="w-5 h-5 bg-[#0057B7] border-3 border-black group-hover:animate-bounce group-hover:[animation-delay:0.1s]"></div>
+              <div className="w-5 h-5 bg-[#FFD500] border-3 border-black group-hover:animate-bounce group-hover:[animation-delay:0.2s]"></div>
             </button>
           </div>
         </div>
