@@ -36,7 +36,7 @@ export function FilterBar({
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-white border-t-4 border-black z-50">
+    <div className="fixed bottom-0 left-0 right-0 bg-[#F5EDE0] border-t-4 border-black z-50">
       {/* Mobile Toggle Button */}
       <button
         onClick={() => setIsExpanded(!isExpanded)}
@@ -59,7 +59,7 @@ export function FilterBar({
           <div className="flex flex-col md:flex-row items-stretch md:items-end gap-4">
             {/* Tone Dropdown */}
             <div className="relative flex-1 min-w-[140px]">
-              <label className="text-xs font-black text-black mb-2 block uppercase tracking-wider">
+              <label className="text-xs font-bold text-black mb-2 block uppercase tracking-[3px]" style={{ fontFamily: 'var(--font-dm-mono)' }}>
                 Tone
               </label>
               <div className="relative">
@@ -80,7 +80,7 @@ export function FilterBar({
 
             {/* Depth Dropdown */}
             <div className="relative flex-1 min-w-[140px]">
-              <label className="text-xs font-black text-black mb-2 block uppercase tracking-wider">
+              <label className="text-xs font-bold text-black mb-2 block uppercase tracking-[3px]" style={{ fontFamily: 'var(--font-dm-mono)' }}>
                 Depth
               </label>
               <div className="relative">
@@ -101,7 +101,7 @@ export function FilterBar({
 
             {/* Topic Dropdown */}
             <div className="relative flex-1 min-w-[140px]">
-              <label className="text-xs font-black text-black mb-2 block uppercase tracking-wider">
+              <label className="text-xs font-bold text-black mb-2 block uppercase tracking-[3px]" style={{ fontFamily: 'var(--font-dm-mono)' }}>
                 Topic
               </label>
               <div className="relative">

@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { FilterState, DEFAULT_FILTERS } from '@/types';
 import { FilterBar } from '@/components/filter-bar';
 import { QuestionDisplay } from '@/components/question-display';
+import { LearnMoreModal } from '@/components/learn-more-modal';
 import { generateQuestion } from '@/lib/question-generator';
 
 export default function Home() {
@@ -12,39 +13,19 @@ export default function Home() {
   const [isGenerating, setIsGenerating] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [cardColor, setCardColor] = useState<string>('#FFFFFF');
-  const [mousePosition, setMousePosition] = useState({ x: 50, y: 50 });
-
-  // Track mouse movement for dynamic gradient
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      const x = (e.clientX / window.innerWidth) * 100;
-      const y = (e.clientY / window.innerHeight) * 100;
-      setMousePosition({ x, y });
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   // Auto-generate question on page load
   useEffect(() => {
     handleGenerate();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-  // Fun background colors for the question card
+  // Bauhaus primary colors for question cards
   const cardColors = [
-    '#FFE5EC', // Soft pink
-    '#E5F4FF', // Soft blue
-    '#FFF5E1', // Soft yellow
-    '#E8F5E9', // Soft green
-    '#F3E5F5', // Soft purple
-    '#FFF3E0', // Soft orange
-    '#E0F7FA', // Soft cyan
-    '#FCE4EC', // Light pink
-    '#F1F8E9', // Light lime
-    '#FFF9C4', // Light yellow
-    '#E1BEE7', // Light purple
-    '#FFCCBC', // Light coral
+    '#E30613', // Red
+    '#0057B7', // Blue
+    '#FFD500', // Yellow
+    '#000000', // Black (was white)
   ];
 
   const getRandomColor = () => {
@@ -105,13 +86,38 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col pb-20 md:pb-32 bg-white">
-      {/* Header - Bauhaus Style */}
-      <header className="pt-8 pb-4 border-b-4 border-black">
+    <div className="min-h-screen flex flex-col pb-20 md:pb-32 relative" style={{ backgroundColor: '#F5EDE0' }}>
+      {/* Noise Texture Overlay */}
+      <div 
+        className="fixed inset-0 pointer-events-none opacity-[0.35] z-0"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+          mixBlendMode: 'multiply'
+        }}
+      />
+      
+      {/* Content with higher z-index */}
+      <div className="relative z-10">
+        {/* Header - Bauhaus Style */}
+        <header className="pt-8 pb-4 border-b-4 border-black">
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-6xl font-black text-black uppercase tracking-tighter">
-            ICEBREAKER
-          </h1>
+          <div className="flex items-start justify-between">
+            <div className="flex-1">
+              <h1 className="text-4xl md:text-6xl font-black text-black tracking-tight">
+                Icebreaker Pad
+              </h1>
+              <p className="text-base font-bold text-black mt-2 uppercase tracking-[3px]" style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '14px' }}>
+                spark genuine connection
+              </p>
+            </div>
+            
+            <button
+              onClick={() => setIsModalOpen(true)}
+              className="ml-4 px-4 py-2 md:px-6 md:py-3 font-black uppercase text-xs md:text-sm tracking-wider bg-white text-black border-3 border-black hover:bg-gray-100 active:translate-y-1 transition-all duration-200 whitespace-nowrap"
+            >
+              Learn More
+            </button>
+          </div>
         </div>
       </header>
 
@@ -140,6 +146,13 @@ export default function Home() {
         onSurprise={handleSurpriseMeSafe}
         isGenerating={isGenerating}
       />
+
+      {/* Learn More Modal */}
+      <LearnMoreModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+      />
+      </div>
     </div>
   );
 }
