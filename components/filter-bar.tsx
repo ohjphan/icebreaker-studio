@@ -127,7 +127,7 @@ export function FilterBar({
                 disabled={isGenerating}
                 className={`
                   px-8 py-3 font-bold uppercase tracking-[3px] transition-all duration-200
-                  border-3 border-white
+                  border-3 border-white min-w-[140px]
                   ${isGenerating
                     ? 'bg-gray-800 text-gray-400 cursor-not-allowed'
                     : 'bg-[#E30613] text-white hover:bg-[#C00510] active:translate-y-1'
@@ -151,7 +151,7 @@ export function FilterBar({
                 disabled={isGenerating}
                 className={`
                   px-6 py-3 font-bold uppercase tracking-[3px] transition-all duration-200
-                  border-3 border-white
+                  border-3 border-white min-w-[130px]
                   ${isGenerating
                     ? 'bg-gray-800 text-gray-400 cursor-not-allowed'
                     : 'bg-[#FFD500] text-black hover:bg-[#E5C000] active:translate-y-1'
