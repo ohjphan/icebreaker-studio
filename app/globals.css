@@ -122,3 +122,13 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Hi Vibes title letter hover effect */
+.title-letter {
+  -webkit-text-stroke: 0px black;
+  transition: -webkit-text-stroke 0.2s ease;
+}
+
+.group:hover .title-letter {
+  -webkit-text-stroke: 2px black;
+}

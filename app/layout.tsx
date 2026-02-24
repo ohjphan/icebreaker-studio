@@ -14,7 +14,7 @@ const dmMono = DM_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Icebreaker Pad",
+  title: "Hi Vibes",
   description: "Spark genuine connection with thoughtful icebreaker questions for your team meetings",
 };
 

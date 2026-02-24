@@ -1,6 +1,7 @@
 'use client';
 
 import { X } from 'lucide-react';
+import { FaLinkedin, FaTwitter, FaInstagram } from 'react-icons/fa';
 
 interface LearnMoreModalProps {
   isOpen: boolean;
@@ -45,17 +46,64 @@ export function LearnMoreModal({ isOpen, onClose }: LearnMoreModalProps) {
           {/* Content */}
           <div className="p-8 md:p-12">
             <h2 className="text-3xl md:text-4xl font-black text-black mb-6 tracking-tight">
-              About Icebreaker Pad
+              About Hi Vibes
             </h2>
             
-            <div className="space-y-4 text-base md:text-lg leading-relaxed text-black">
+            <div className="space-y-4 leading-relaxed text-black" style={{ fontSize: '16px' }}>
               <p>
-                Icebreakers are more than warm-ups. They're backed by social science. Brief, structured sharing builds psychological safety, increasing trust, participation, and openness. When people share small personal insights, it reduces social threat and helps teams feel more connected, faster. Research shows that early participation and familiarity also improve collaboration, creativity, and problem-solving.
+                One of my favorite parts of design standup at CZI Education is bonding with my peers over a silly or surprisingly deep icebreaker question. Those small moments of sharing always seem to shift the energy in the room.
               </p>
               
               <p>
-                That's why we created Icebreaker Pad to generate thoughtful questions that help teams connect and vibe faster. Created by Jessica Phan with the help of Cursor and ChatGPT, it's designed to make meaningful connection simple, fast, and accessible for any group.
+                Icebreakers are more than warm-ups. Brief, structured sharing builds psychological safety, increasing trust, participation, and openness. When people share small personal insights, it lowers social barriers and helps teams feel connected faster. Research shows that early participation and familiarity also strengthen collaboration, creativity, and problem-solving.
               </p>
+              
+              <p>
+                Sometimes, though, coming up with a great question takes more time than you have. That's why I created Hi Vibes, to help teams spark meaningful connection and vibe together, effortlessly.
+              </p>
+
+              <div className="pt-4">
+                <p className="font-bold">
+                  Jessica Phan
+                </p>
+                <p className="text-sm text-black/70 mt-1">
+                  Built in collaboration with Cursor and ChatGPT
+                </p>
+                
+                {/* Social Icons */}
+                <div className="flex gap-3 mt-3">
+                  <a 
+                    href="https://www.linkedin.com/in/jessicaphan/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="p-2 border-3 border-black hover:scale-110 transition-transform"
+                    style={{ backgroundColor: '#0057B7' }}
+                    aria-label="LinkedIn"
+                  >
+                    <FaLinkedin className="h-5 w-5 text-white" />
+                  </a>
+                  <a 
+                    href="https://x.com/ohjphan" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="p-2 border-3 border-black hover:scale-110 transition-transform"
+                    style={{ backgroundColor: '#E30613' }}
+                    aria-label="Twitter"
+                  >
+                    <FaTwitter className="h-5 w-5 text-white" />
+                  </a>
+                  <a 
+                    href="https://www.instagram.com/phannify/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="p-2 border-3 border-black hover:scale-110 transition-transform"
+                    style={{ backgroundColor: '#FFD500' }}
+                    aria-label="Instagram"
+                  >
+                    <FaInstagram className="h-5 w-5 text-black" />
+                  </a>
+                </div>
+              </div>
             </div>
 
             {/* Close button at bottom */}

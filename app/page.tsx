@@ -33,6 +33,14 @@ export default function Home() {
     return cardColors[randomIndex];
   };
 
+  // Get upcoming card colors for stack effect
+  const getUpcomingCardColors = () => {
+    return [
+      cardColors[Math.floor(Math.random() * cardColors.length)],
+      cardColors[Math.floor(Math.random() * cardColors.length)],
+    ];
+  };
+
   const handleGenerate = async () => {
     setIsGenerating(true);
     setError(null);
@@ -100,13 +108,20 @@ export default function Home() {
       <div className="relative z-10">
         {/* Header - Bauhaus Style */}
         <header className="pt-8 pb-4">
-          <div className="container mx-auto">
+          <div className="w-full max-w-5xl mx-auto px-4">
           <div className="flex items-center justify-between">
             <div className="flex-1">
-              <h1 className="font-black text-black tracking-tight" style={{ fontSize: '32px' }}>
-                Icebreaker Pad
+              <h1 className="font-black text-black tracking-tight group inline-block cursor-default" style={{ fontSize: '32px' }}>
+                <span className="inline-block title-letter group-hover:animate-bounce group-hover:text-[#E30613] transition-colors">H</span>
+                <span className="inline-block title-letter group-hover:animate-bounce group-hover:[animation-delay:0.05s] group-hover:text-[#0057B7] transition-colors">i</span>
+                <span className="inline-block group-hover:text-black transition-colors"> </span>
+                <span className="inline-block title-letter group-hover:animate-bounce group-hover:[animation-delay:0.1s] group-hover:text-[#FFD500] transition-colors">V</span>
+                <span className="inline-block title-letter group-hover:animate-bounce group-hover:[animation-delay:0.15s] group-hover:text-[#E30613] transition-colors">i</span>
+                <span className="inline-block title-letter group-hover:animate-bounce group-hover:[animation-delay:0.2s] group-hover:text-[#0057B7] transition-colors">b</span>
+                <span className="inline-block title-letter group-hover:animate-bounce group-hover:[animation-delay:0.25s] group-hover:text-[#FFD500] transition-colors">e</span>
+                <span className="inline-block title-letter group-hover:animate-bounce group-hover:[animation-delay:0.3s] group-hover:text-[#E30613] transition-colors">s</span>
               </h1>
-              <p className="text-base font-bold text-black mt-2 uppercase tracking-[3px]" style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '14px' }}>
+              <p className="text-base font-bold text-black mt-1 uppercase tracking-[3px]" style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '14px' }}>
                 spark genuine connection
               </p>
             </div>
@@ -134,6 +149,7 @@ export default function Home() {
             error={error}
             onReroll={handleGenerate}
             cardColor={cardColor}
+            upcomingCardColors={getUpcomingCardColors()}
           />
         </div>
       </main>
