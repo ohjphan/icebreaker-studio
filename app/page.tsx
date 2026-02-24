@@ -114,7 +114,7 @@ export default function Home() {
             <button
               onClick={() => setIsModalOpen(true)}
               className="ml-4 px-4 py-2 md:px-6 md:py-3 font-bold uppercase tracking-[3px] bg-white text-black border-3 border-black hover:bg-gray-100 active:translate-y-1 transition-all duration-200 whitespace-nowrap"
-              style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '16px' }}
+              style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '14px' }}
             >
               Learn More
             </button>

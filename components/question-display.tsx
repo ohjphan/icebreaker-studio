@@ -69,7 +69,7 @@ export function QuestionDisplay({
                 onClick={onReroll}
                 disabled={isLoading}
                 className="group px-10 py-4 font-bold uppercase tracking-[3px] bg-white text-black border-3 border-black hover:bg-gray-100 active:translate-y-1 transition-all duration-200 flex items-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed"
-                style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '16px' }}
+                style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '14px' }}
               >
                 <span className={`text-2xl ${isLoading ? 'animate-bounce' : 'group-hover:animate-bounce'}`}>
                   🎲

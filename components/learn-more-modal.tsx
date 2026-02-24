@@ -52,7 +52,7 @@ export function LearnMoreModal({ isOpen, onClose }: LearnMoreModalProps) {
               <button
                 onClick={onClose}
                 className="px-8 py-3 font-bold uppercase tracking-[3px] bg-black text-white border-3 border-black hover:bg-gray-800 active:translate-y-1 transition-all duration-200"
-                style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '16px' }}
+                style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '14px' }}
               >
                 Close
               </button>

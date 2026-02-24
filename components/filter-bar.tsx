@@ -133,9 +133,17 @@ export function FilterBar({
                     : 'bg-[#E30613] text-white hover:bg-[#C00510] active:translate-y-1'
                   }
                 `}
-                style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '16px' }}
+                style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '14px' }}
               >
-                {isGenerating ? 'Loading...' : 'Generate'}
+                {isGenerating ? (
+                  <div className="flex items-center justify-center gap-2">
+                    <div className="w-3 h-3 bg-[#E30613] border border-white animate-bounce"></div>
+                    <div className="w-3 h-3 bg-[#0057B7] border border-white animate-bounce [animation-delay:0.1s]"></div>
+                    <div className="w-3 h-3 bg-[#FFD500] border border-white animate-bounce [animation-delay:0.2s]"></div>
+                  </div>
+                ) : (
+                  'Generate'
+                )}
               </button>
               
               <button
@@ -149,9 +157,17 @@ export function FilterBar({
                     : 'bg-[#FFD500] text-black hover:bg-[#E5C000] active:translate-y-1'
                   }
                 `}
-                style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '16px' }}
+                style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '14px' }}
               >
-                Surprise
+                {isGenerating ? (
+                  <div className="flex items-center justify-center gap-2">
+                    <div className="w-3 h-3 bg-[#E30613] border border-black animate-bounce"></div>
+                    <div className="w-3 h-3 bg-[#0057B7] border border-black animate-bounce [animation-delay:0.1s]"></div>
+                    <div className="w-3 h-3 bg-[#FFD500] border border-black animate-bounce [animation-delay:0.2s]"></div>
+                  </div>
+                ) : (
+                  'Surprise'
+                )}
               </button>
             </div>
           </div>
