@@ -26,6 +26,11 @@ export default function Home() {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
+  // Auto-generate question on page load
+  useEffect(() => {
+    handleGenerate();
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
   // Fun background colors for the question card
   const cardColors = [
     '#FFE5EC', // Soft pink
@@ -100,36 +105,13 @@ export default function Home() {
   };
 
   return (
-    <div 
-      className="min-h-screen flex flex-col pb-20 md:pb-32 transition-all duration-300 ease-out relative overflow-hidden"
-      style={{ 
-        background: `
-          radial-gradient(circle at ${mousePosition.x}% ${mousePosition.y}%, 
-            rgba(255, 107, 237, 0.4) 0%, 
-            rgba(138, 127, 232, 0.3) 20%, 
-            transparent 50%),
-          radial-gradient(circle at ${100 - mousePosition.x}% ${100 - mousePosition.y}%, 
-            rgba(255, 154, 158, 0.3) 0%, 
-            rgba(108, 92, 231, 0.4) 30%, 
-            transparent 60%),
-          linear-gradient(135deg, 
-            #6C5CE7 0%, 
-            #FF6BED 20%, 
-            #FF9A9E 40%, 
-            #5ED9E3 60%, 
-            #8B7FE8 80%, 
-            #4C3F91 100%)`
-      }}
-    >
-      {/* Header - Simplified */}
-      <header className="pt-6 pb-0">
+    <div className="min-h-screen flex flex-col pb-20 md:pb-32 bg-white">
+      {/* Header - Bauhaus Style */}
+      <header className="pt-8 pb-4 border-b-4 border-black">
         <div className="container mx-auto px-4">
-          <h1 className="text-2xl md:text-3xl font-bold text-white text-center tracking-tight">
-            Icebreaker Studio
+          <h1 className="text-4xl md:text-6xl font-black text-black uppercase tracking-tighter">
+            ICEBREAKER
           </h1>
-          <p className="text-sm md:text-base text-purple-100 mt-2 font-medium text-center">
-            Spark genuine connection
-          </p>
         </div>
       </header>
 
