@@ -12,15 +12,27 @@ export function LearnMoreModal({ isOpen, onClose }: LearnMoreModalProps) {
 
   return (
     <>
-      {/* Backdrop */}
+      {/* Backdrop with Blue Background */}
       <div 
         className="fixed inset-0 z-50 transition-opacity"
         style={{ backgroundColor: '#0057B7' }}
         onClick={onClose}
-      />
+      >
+        {/* Noise Texture Overlay on top of blue */}
+        <div 
+          className="absolute inset-0 pointer-events-none opacity-[0.5]"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+            mixBlendMode: 'multiply',
+            width: '100%',
+            height: '100%'
+          }}
+        />
+      </div>
       
       {/* Modal */}
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 pointer-events-none">
+        <div className="pointer-events-auto">
         <div className="bg-white border-4 border-black max-w-2xl w-full max-h-[80vh] overflow-y-auto relative">
           {/* Close button */}
           <button
