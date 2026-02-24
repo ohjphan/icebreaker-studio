@@ -221,8 +221,8 @@ export function QuestionDisplay({
         ) : question ? (
           <div className="w-full flex flex-col items-center justify-center space-y-12 animate-in fade-in duration-500">
             <p 
-              className="text-center leading-tight font-black tracking-tight max-w-4xl"
-              style={{ color: textColor, fontSize: '40px' }}
+              className="text-center leading-tight font-black tracking-tight max-w-4xl text-2xl md:text-[40px]"
+              style={{ color: textColor }}
             >
               {question}
             </p>
