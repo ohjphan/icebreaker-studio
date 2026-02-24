@@ -103,7 +103,7 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="flex items-start justify-between">
             <div className="flex-1">
-              <h1 className="text-4xl md:text-6xl font-black text-black tracking-tight">
+              <h1 className="font-black text-black tracking-tight" style={{ fontSize: '32px' }}>
                 Icebreaker Pad
               </h1>
               <p className="text-base font-bold text-black mt-2 uppercase tracking-[3px]" style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '14px' }}>
